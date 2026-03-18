@@ -30,7 +30,7 @@ selenium==4.16.0
 # File Processing
 PyPDF2==3.0.1
 python-docx==1.1.0
-pillow==10.3.0
+pillow==12.1.1
 pytesseract==0.3.10
 
 # Media Processing
