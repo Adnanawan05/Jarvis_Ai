@@ -5,45 +5,45 @@ pydantic==2.5.0
 websockets==12.0
 
 # AI & NLP
-openai-whisper==20231117
+# openai-whisper==20231117  # Optional - install separately if needed: pip install openai-whisper
 # vosk==0.3.45  # Alternative for offline speech recognition
-langchain==0.1.0
-chromadb==0.4.22
-sentence-transformers==2.3.1
+# langchain==0.1.0  # Optional - for advanced AI features
+# chromadb==0.4.22  # Optional - for vector storage
+# sentence-transformers==2.3.1  # Optional - for embeddings
 
-# Voice & Audio
-pyttsx3==2.90
-sounddevice==0.4.6
-soundfile==0.12.1
-pyaudio==0.2.14
+# Voice & Audio (Optional - for advanced voice features)
+# pyttsx3==2.90  # Text-to-speech
+# sounddevice==0.4.6  # Audio recording
+# soundfile==0.12.1  # Audio file handling
+# pyaudio==0.2.14  # Audio I/O
 
 # OS Control & Automation
 psutil==5.9.7
-pyautogui==0.9.54
-keyboard==0.13.5
-mouse==0.7.1
+# pyautogui==0.9.54  # Optional - for OS automation
+# keyboard==0.13.5  # Optional - for keyboard control
+# mouse==0.7.1  # Optional - for mouse control
 
-# Browser Automation
-playwright==1.41.0
-selenium==4.16.0
+# Browser Automation (Optional - install if you need browser automation)
+# playwright==1.41.0  # Install with: pip install playwright && playwright install
+# selenium==4.16.0  # Alternative browser automation
 
-# File Processing
-PyPDF2==3.0.1
-python-docx==1.1.0
-pillow==12.1.1
-pytesseract==0.3.10
+# File Processing (Optional - for file operations)
+# PyPDF2==3.0.1  # PDF processing
+# python-docx==1.1.0  # Word document processing
+pillow==12.1.1  # Image processing (used by frontend)
+# pytesseract==0.3.10  # OCR
 
-# Media Processing
-ffmpeg-python==0.2.0
+# Media Processing (Optional)
+# ffmpeg-python==0.2.0  # Video/audio processing
 
-# Database & Storage
-sqlalchemy==2.0.25
-tinydb==4.8.0
-faiss-cpu==1.7.4
+# Database & Storage (Optional - for advanced features)
+# sqlalchemy==2.0.25  # SQL database
+# tinydb==4.8.0  # Lightweight database
+# faiss-cpu==1.7.4  # Vector similarity search
 
 # Security & Encryption
 cryptography==46.0.5
-python-nmap==0.7.1
+# python-nmap==0.7.1  # Optional - for network scanning
 
 # Utilities
 python-dotenv==1.0.0
@@ -52,5 +52,5 @@ requests==2.31.0
 aiofiles==23.2.1
 
 # Network & API
-fastapi-websocket==0.1.0
+# fastapi-websocket is built into fastapi, no separate package needed
 python-multipart==0.0.22
