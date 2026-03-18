@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>J.A.R.V.I.S. - AI Desktop Agent</title>
+  <link rel="stylesheet" href="styles/main.css">
+  <link rel="stylesheet" href="styles/dashboard.css">
+  <link rel="stylesheet" href="styles/panels.css">
+  <link rel="stylesheet" href="styles/animations.css">
+</head>
+<body>
+  <div id="app" class="app-container">
+    <!-- Background Effects -->
+    <div class="background-effects">
+      <canvas id="particleCanvas"></canvas>
+      <div class="gradient-overlay"></div>
+    </div>
+
+    <!-- Main Container -->
+    <div class="main-container">
+      <!-- Header Bar -->
+      <header class="header-bar">
+        <div class="header-left">
+          <div class="logo-container">
+            <div class="logo-glow"></div>
+            <span class="logo-text">J.A.R.V.I.S.</span>
+          </div>
+          <div class="status-indicator">
+            <span class="status-dot"></span>
+            <span class="status-text">Online</span>
+          </div>
+        </div>
+
+        <div class="header-center">
+          <div class="system-health">
+            <div class="health-item">
+              <span class="health-icon">🖥️</span>
+              <span class="health-label">CPU</span>
+              <div class="health-bar">
+                <div class="health-fill" id="cpuFill"></div>
+              </div>
+              <span class="health-value" id="cpuValue">0%</span>
+            </div>
+            <div class="health-item">
+              <span class="health-icon">🧠</span>
+              <span class="health-label">RAM</span>
+              <div class="health-bar">
+                <div class="health-fill" id="ramFill"></div>
+              </div>
+              <span class="health-value" id="ramValue">0%</span>
+            </div>
+            <div class="health-item">
+              <span class="health-icon">🔋</span>
+              <span class="health-label">Battery</span>
+              <div class="health-bar">
+                <div class="health-fill" id="batteryFill"></div>
+              </div>
+              <span class="health-value" id="batteryValue">100%</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="header-right">
+          <div class="datetime-display">
+            <div class="time-display" id="timeDisplay">00:00:00</div>
+            <div class="date-display" id="dateDisplay">Loading...</div>
+          </div>
+        </div>
+      </header>
+
+      <!-- Main Content Area -->
+      <div class="content-wrapper">
+        <!-- Left Sidebar Navigation -->
+        <aside class="sidebar-nav">
+          <nav class="nav-menu">
+            <button class="nav-item active" data-panel="dashboard">
+              <span class="nav-icon">🏠</span>
+              <span class="nav-label">Dashboard</span>
+            </button>
+            <button class="nav-item" data-panel="voice">
+              <span class="nav-icon">🎤</span>
+              <span class="nav-label">Voice</span>
+            </button>
+            <button class="nav-item" data-panel="files">
+              <span class="nav-icon">📁</span>
+              <span class="nav-label">Files</span>
+            </button>
+            <button class="nav-item" data-panel="browser">
+              <span class="nav-icon">🌐</span>
+              <span class="nav-label">Browser</span>
+            </button>
+            <button class="nav-item" data-panel="media">
+              <span class="nav-icon">🎵</span>
+              <span class="nav-label">Media</span>
+            </button>
+            <button class="nav-item" data-panel="security">
+              <span class="nav-icon">🛡️</span>
+              <span class="nav-label">Security</span>
+            </button>
+            <button class="nav-item" data-panel="settings">
+              <span class="nav-icon">⚙️</span>
+              <span class="nav-label">Settings</span>
+            </button>
+          </nav>
+        </aside>
+
+        <!-- Main Panel Area -->
+        <main class="main-panel">
+          <!-- Dashboard Panel -->
+          <section id="panel-dashboard" class="panel active">
+            <div class="panel-grid">
+              <!-- AI Avatar Panel -->
+              <div class="panel-card avatar-panel">
+                <h2 class="card-title">AI Assistant</h2>
+                <div class="avatar-container">
+                  <canvas id="avatarCanvas" class="avatar-canvas"></canvas>
+                  <div class="avatar-status" id="avatarStatus">Ready</div>
+                </div>
+                <div class="avatar-message" id="avatarMessage">
+                  Hello, I'm J.A.R.V.I.S. How may I assist you today?
+                </div>
+              </div>
+
+              <!-- Quick Actions Panel -->
+              <div class="panel-card quick-actions-panel">
+                <h2 class="card-title">Quick Actions</h2>
+                <div class="action-grid">
+                  <button class="action-btn" data-action="open-chrome">
+                    <span class="action-icon">🌐</span>
+                    <span class="action-label">Chrome</span>
+                  </button>
+                  <button class="action-btn" data-action="play-music">
+                    <span class="action-icon">🎵</span>
+                    <span class="action-label">Music</span>
+                  </button>
+                  <button class="action-btn" data-action="organize-files">
+                    <span class="action-icon">📂</span>
+                    <span class="action-label">Organize</span>
+                  </button>
+                  <button class="action-btn" data-action="fiverr-gig">
+                    <span class="action-icon">💼</span>
+                    <span class="action-label">Fiverr</span>
+                  </button>
+                  <button class="action-btn" data-action="youtube">
+                    <span class="action-icon">📹</span>
+                    <span class="action-label">YouTube</span>
+                  </button>
+                  <button class="action-btn" data-action="focus-mode">
+                    <span class="action-icon">🎯</span>
+                    <span class="action-label">Focus</span>
+                  </button>
+                  <button class="action-btn" data-action="backup">
+                    <span class="action-icon">💾</span>
+                    <span class="action-label">Backup</span>
+                  </button>
+                  <button class="action-btn" data-action="scan-network">
+                    <span class="action-icon">🔍</span>
+                    <span class="action-label">Network</span>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Command Log Panel -->
+              <div class="panel-card command-log-panel">
+                <h2 class="card-title">Command Log</h2>
+                <div class="command-log" id="commandLog">
+                  <div class="log-entry success">
+                    <span class="log-time">19:09:15</span>
+                    <span class="log-icon">✓</span>
+                    <span class="log-text">System initialized successfully</span>
+                  </div>
+                  <div class="log-entry info">
+                    <span class="log-time">19:09:16</span>
+                    <span class="log-icon">ℹ</span>
+                    <span class="log-text">Voice recognition module loaded</span>
+                  </div>
+                  <div class="log-entry info">
+                    <span class="log-time">19:09:17</span>
+                    <span class="log-icon">ℹ</span>
+                    <span class="log-text">All systems operational</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- System Status Panel -->
+              <div class="panel-card system-status-panel">
+                <h2 class="card-title">System Status</h2>
+                <div class="status-grid">
+                  <div class="status-item">
+                    <span class="status-label">Mode</span>
+                    <span class="status-value" id="systemMode">Normal</span>
+                  </div>
+                  <div class="status-item">
+                    <span class="status-label">Uptime</span>
+                    <span class="status-value" id="systemUptime">0h 0m</span>
+                  </div>
+                  <div class="status-item">
+                    <span class="status-label">Network</span>
+                    <span class="status-value">Connected</span>
+                  </div>
+                  <div class="status-item">
+                    <span class="status-label">Tasks Completed</span>
+                    <span class="status-value" id="tasksCompleted">0</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Voice Command Panel -->
+          <section id="panel-voice" class="panel">
+            <div class="panel-grid">
+              <div class="panel-card voice-control-panel">
+                <h2 class="card-title">Voice Control</h2>
+                <div class="voice-visualizer">
+                  <canvas id="voiceWaveform" class="waveform-canvas"></canvas>
+                  <div class="voice-status">
+                    <div class="listening-indicator" id="listeningIndicator">
+                      <div class="pulse-ring"></div>
+                      <div class="mic-icon">🎤</div>
+                    </div>
+                    <div class="voice-status-text" id="voiceStatusText">Say "Jarvis" to activate</div>
+                  </div>
+                </div>
+                <div class="voice-transcript" id="voiceTranscript">
+                  <p class="transcript-placeholder">Your speech will appear here...</p>
+                </div>
+                <div class="voice-controls">
+                  <button class="voice-btn" id="toggleListening">
+                    <span class="btn-icon">🎤</span>
+                    <span class="btn-label">Start Listening</span>
+                  </button>
+                  <button class="voice-btn" id="clearTranscript">
+                    <span class="btn-icon">🗑️</span>
+                    <span class="btn-label">Clear</span>
+                  </button>
+                </div>
+              </div>
+
+              <div class="panel-card manual-command-panel">
+                <h2 class="card-title">Manual Command Input</h2>
+                <div class="command-input-area">
+                  <textarea
+                    id="manualCommandInput"
+                    class="command-textarea"
+                    placeholder="Type your command here... (e.g., 'Open Chrome', 'Organize my downloads', 'Create Fiverr gig')"
+                  ></textarea>
+                  <button class="execute-btn" id="executeManualCommand">
+                    <span class="btn-icon">⚡</span>
+                    <span class="btn-label">Execute Command</span>
+                  </button>
+                </div>
+                <div class="command-suggestions">
+                  <h3>Suggested Commands:</h3>
+                  <div class="suggestion-list">
+                    <button class="suggestion-item">Open Chrome</button>
+                    <button class="suggestion-item">Play music</button>
+                    <button class="suggestion-item">Organize downloads</button>
+                    <button class="suggestion-item">Create Fiverr gig</button>
+                    <button class="suggestion-item">Summarize PDF</button>
+                    <button class="suggestion-item">Backup files</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Files & Projects Panel -->
+          <section id="panel-files" class="panel">
+            <div class="panel-grid">
+              <div class="panel-card file-explorer-panel">
+                <h2 class="card-title">File Explorer</h2>
+                <div class="file-explorer-toolbar">
+                  <input type="text" class="file-search" placeholder="Search files...">
+                  <button class="toolbar-btn">📁 Browse</button>
+                  <button class="toolbar-btn">🔄 Refresh</button>
+                </div>
+                <div class="file-tree" id="fileTree">
+                  <div class="file-item folder">
+                    <span class="file-icon">📁</span>
+                    <span class="file-name">Documents</span>
+                  </div>
+                  <div class="file-item folder">
+                    <span class="file-icon">📁</span>
+                    <span class="file-name">Downloads</span>
+                  </div>
+                  <div class="file-item folder">
+                    <span class="file-icon">📁</span>
+                    <span class="file-name">Projects</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="panel-card file-actions-panel">
+                <h2 class="card-title">File Actions</h2>
+                <div class="action-cards" id="fileActionCards">
+                  <div class="action-card">
+                    <div class="card-icon">📄</div>
+                    <div class="card-label">Summarize PDF</div>
+                  </div>
+                  <div class="action-card">
+                    <div class="card-icon">🏷️</div>
+                    <div class="card-label">Rename Files</div>
+                  </div>
+                  <div class="action-card">
+                    <div class="card-icon">📦</div>
+                    <div class="card-label">Compress</div>
+                  </div>
+                  <div class="action-card">
+                    <div class="card-icon">☁️</div>
+                    <div class="card-label">Upload to Cloud</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Browser Automation Panel -->
+          <section id="panel-browser" class="panel">
+            <div class="panel-grid">
+              <div class="panel-card browser-panel">
+                <h2 class="card-title">Browser Automation</h2>
+                <div class="browser-container">
+                  <webview id="browserView" class="browser-webview" src="about:blank"></webview>
+                </div>
+                <div class="browser-controls">
+                  <input type="text" class="url-input" placeholder="Enter URL...">
+                  <button class="browser-btn">Go</button>
+                  <button class="browser-btn">⏸️ Pause</button>
+                  <button class="browser-btn">⏹️ Stop</button>
+                </div>
+              </div>
+
+              <div class="panel-card automation-log-panel">
+                <h2 class="card-title">Automation Log</h2>
+                <div class="automation-log" id="automationLog">
+                  <p class="log-placeholder">Automation tasks will appear here...</p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Media & Productivity Panel -->
+          <section id="panel-media" class="panel">
+            <div class="panel-grid">
+              <div class="panel-card media-player-panel">
+                <h2 class="card-title">Media Player</h2>
+                <div class="media-info">
+                  <div class="album-art">🎵</div>
+                  <div class="track-info">
+                    <div class="track-title">No media playing</div>
+                    <div class="track-artist">—</div>
+                  </div>
+                </div>
+                <div class="media-controls">
+                  <button class="media-btn">⏮️</button>
+                  <button class="media-btn play-btn">▶️</button>
+                  <button class="media-btn">⏭️</button>
+                </div>
+              </div>
+
+              <div class="panel-card pomodoro-panel">
+                <h2 class="card-title">Focus Timer</h2>
+                <div class="timer-display">
+                  <svg class="timer-ring" viewBox="0 0 200 200">
+                    <circle cx="100" cy="100" r="90" class="timer-ring-bg"></circle>
+                    <circle cx="100" cy="100" r="90" class="timer-ring-fill" id="timerRingFill"></circle>
+                  </svg>
+                  <div class="timer-text" id="timerText">25:00</div>
+                </div>
+                <div class="timer-controls">
+                  <button class="timer-btn" id="startTimer">Start</button>
+                  <button class="timer-btn" id="resetTimer">Reset</button>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Security Panel -->
+          <section id="panel-security" class="panel">
+            <div class="panel-grid">
+              <div class="panel-card security-status-panel">
+                <h2 class="card-title">Security Status</h2>
+                <div class="security-shield">
+                  <div class="shield-icon">🛡️</div>
+                  <div class="shield-status">Protected</div>
+                </div>
+                <div class="security-metrics">
+                  <div class="metric-item">
+                    <span class="metric-label">Devices</span>
+                    <span class="metric-value">3 Authorized</span>
+                  </div>
+                  <div class="metric-item">
+                    <span class="metric-label">Threats</span>
+                    <span class="metric-value">0 Detected</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="panel-card alerts-panel">
+                <h2 class="card-title">Security Alerts</h2>
+                <div class="alerts-log" id="alertsLog">
+                  <p class="log-placeholder">No security alerts</p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Settings Panel -->
+          <section id="panel-settings" class="panel">
+            <div class="panel-grid">
+              <div class="panel-card theme-settings-panel">
+                <h2 class="card-title">Theme Settings</h2>
+                <div class="theme-grid">
+                  <button class="theme-option active" data-theme="dark">
+                    <div class="theme-preview dark-preview"></div>
+                    <span class="theme-name">Dark</span>
+                  </button>
+                  <button class="theme-option" data-theme="neon">
+                    <div class="theme-preview neon-preview"></div>
+                    <span class="theme-name">Neon Blue</span>
+                  </button>
+                  <button class="theme-option" data-theme="matrix">
+                    <div class="theme-preview matrix-preview"></div>
+                    <span class="theme-name">Matrix</span>
+                  </button>
+                  <button class="theme-option" data-theme="tron">
+                    <div class="theme-preview tron-preview"></div>
+                    <span class="theme-name">Tron</span>
+                  </button>
+                  <button class="theme-option" data-theme="holographic">
+                    <div class="theme-preview holographic-preview"></div>
+                    <span class="theme-name">Holographic</span>
+                  </button>
+                </div>
+              </div>
+
+              <div class="panel-card voice-settings-panel">
+                <h2 class="card-title">Voice Settings</h2>
+                <div class="settings-form">
+                  <div class="form-group">
+                    <label>Wake Word</label>
+                    <input type="text" value="Jarvis" class="settings-input">
+                  </div>
+                  <div class="form-group">
+                    <label>Voice Language</label>
+                    <select class="settings-select">
+                      <option>English (US)</option>
+                      <option>English (UK)</option>
+                      <option>Spanish</option>
+                      <option>French</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label>TTS Engine</label>
+                    <select class="settings-select">
+                      <option>pyttsx3</option>
+                      <option>ElevenLabs</option>
+                      <option>Coqui</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </main>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="scripts/particles.js"></script>
+  <script src="scripts/avatar.js"></script>
+  <script src="scripts/voice.js"></script>
+  <script src="scripts/system-monitor.js"></script>
+  <script src="scripts/navigation.js"></script>
+  <script src="scripts/commands.js"></script>
+  <script src="scripts/main.js"></script>
+</body>
+</html>

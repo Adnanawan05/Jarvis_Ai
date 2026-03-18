@@ -1,0 +1,56 @@
+# Core Backend
+fastapi==0.109.0
+uvicorn==0.27.0
+pydantic==2.5.0
+websockets==12.0
+
+# AI & NLP
+openai-whisper==20231117
+# vosk==0.3.45  # Alternative for offline speech recognition
+langchain==0.1.0
+chromadb==0.4.22
+sentence-transformers==2.3.1
+
+# Voice & Audio
+pyttsx3==2.90
+sounddevice==0.4.6
+soundfile==0.12.1
+pyaudio==0.2.14
+
+# OS Control & Automation
+psutil==5.9.7
+pyautogui==0.9.54
+keyboard==0.13.5
+mouse==0.7.1
+
+# Browser Automation
+playwright==1.41.0
+selenium==4.16.0
+
+# File Processing
+PyPDF2==3.0.1
+python-docx==1.1.0
+pillow==10.2.0
+pytesseract==0.3.10
+
+# Media Processing
+ffmpeg-python==0.2.0
+
+# Database & Storage
+sqlalchemy==2.0.25
+tinydb==4.8.0
+faiss-cpu==1.7.4
+
+# Security & Encryption
+cryptography==42.0.0
+python-nmap==0.7.1
+
+# Utilities
+python-dotenv==1.0.0
+schedule==1.2.0
+requests==2.31.0
+aiofiles==23.2.1
+
+# Network & API
+fastapi-websocket==0.1.0
+python-multipart==0.0.6
