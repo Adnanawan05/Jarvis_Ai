@@ -1,0 +1,632 @@
+/* ============================================
+   J.A.R.V.I.S. Panel Styles
+   ============================================ */
+
+/* ============================================
+   Voice Control Panel
+   ============================================ */
+
+.voice-control-panel {
+  grid-column: span 2;
+}
+
+.voice-visualizer {
+  position: relative;
+  width: 100%;
+  height: 250px;
+  background: var(--bg-tertiary);
+  border-radius: var(--radius-lg);
+  margin-bottom: var(--spacing-lg);
+  overflow: hidden;
+}
+
+.waveform-canvas {
+  width: 100%;
+  height: 100%;
+}
+
+.voice-status {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-md);
+}
+
+.listening-indicator {
+  position: relative;
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pulse-ring {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border: 3px solid var(--accent-primary);
+  border-radius: 50%;
+  animation: pulseRing 2s infinite;
+}
+
+@keyframes pulseRing {
+  0% {
+    transform: scale(0.8);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}
+
+.mic-icon {
+  font-size: 2.5rem;
+  filter: drop-shadow(0 0 20px var(--accent-glow));
+}
+
+.voice-status-text {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.voice-transcript {
+  min-height: 150px;
+  padding: var(--spacing-lg);
+  background: var(--bg-tertiary);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--accent-primary);
+  margin-bottom: var(--spacing-lg);
+  overflow-y: auto;
+}
+
+.transcript-placeholder {
+  color: var(--text-dim);
+  font-style: italic;
+}
+
+.voice-controls {
+  display: flex;
+  gap: var(--spacing-md);
+  justify-content: center;
+}
+
+.voice-btn {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-md) var(--spacing-xl);
+}
+
+/* ============================================
+   Manual Command Panel
+   ============================================ */
+
+.manual-command-panel {
+  grid-column: span 2;
+}
+
+.command-input-area {
+  margin-bottom: var(--spacing-lg);
+}
+
+.command-textarea {
+  width: 100%;
+  min-height: 120px;
+  resize: vertical;
+  margin-bottom: var(--spacing-md);
+  font-family: 'Courier New', monospace;
+}
+
+.execute-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-lg);
+  background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+  border: none;
+  color: var(--bg-primary);
+  font-weight: 600;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.execute-btn:hover {
+  box-shadow: var(--glow-lg);
+  transform: scale(1.02);
+}
+
+.command-suggestions h3 {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  margin-bottom: var(--spacing-md);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.suggestion-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-sm);
+}
+
+.suggestion-item {
+  padding: var(--spacing-sm) var(--spacing-md);
+  background: var(--bg-tertiary);
+  border: 1px solid var(--accent-primary);
+  border-radius: var(--radius-md);
+  font-size: 0.875rem;
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.suggestion-item:hover {
+  background: var(--accent-primary);
+  color: var(--bg-primary);
+  transform: translateY(-2px);
+}
+
+/* ============================================
+   File Explorer Panel
+   ============================================ */
+
+.file-explorer-panel {
+  grid-column: span 2;
+}
+
+.file-explorer-toolbar {
+  display: flex;
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-lg);
+}
+
+.file-search {
+  flex: 1;
+}
+
+.toolbar-btn {
+  padding: var(--spacing-md);
+  white-space: nowrap;
+}
+
+.file-tree {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.file-item {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  padding: var(--spacing-md);
+  background: var(--bg-tertiary);
+  border-radius: var(--radius-md);
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.file-item:hover {
+  border-color: var(--accent-primary);
+  box-shadow: var(--glow-sm);
+}
+
+.file-icon {
+  font-size: 1.5rem;
+}
+
+.file-name {
+  flex: 1;
+  font-size: 0.875rem;
+  color: var(--text-primary);
+}
+
+/* ============================================
+   File Actions Panel
+   ============================================ */
+
+.file-actions-panel {
+  grid-column: span 2;
+}
+
+.action-cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--spacing-md);
+}
+
+.action-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-md);
+  padding: var(--spacing-lg);
+  background: var(--bg-tertiary);
+  border: 2px dashed var(--accent-primary);
+  border-radius: var(--radius-lg);
+  cursor: pointer;
+  transition: all var(--transition-normal);
+  position: relative;
+}
+
+.action-card:hover {
+  border-style: solid;
+  box-shadow: var(--glow-md);
+  transform: scale(1.05);
+}
+
+.card-icon {
+  font-size: 3rem;
+  filter: drop-shadow(0 0 10px var(--accent-glow));
+}
+
+.card-label {
+  font-size: 0.875rem;
+  text-align: center;
+  color: var(--text-primary);
+}
+
+/* ============================================
+   Browser Panel
+   ============================================ */
+
+.browser-panel {
+  grid-column: span 3;
+}
+
+.browser-container {
+  width: 100%;
+  height: 500px;
+  background: var(--bg-tertiary);
+  border-radius: var(--radius-md);
+  margin-bottom: var(--spacing-lg);
+  overflow: hidden;
+}
+
+.browser-webview {
+  width: 100%;
+  height: 100%;
+}
+
+.browser-controls {
+  display: flex;
+  gap: var(--spacing-md);
+}
+
+.url-input {
+  flex: 1;
+}
+
+/* ============================================
+   Automation Log Panel
+   ============================================ */
+
+.automation-log-panel {
+  grid-column: span 1;
+}
+
+.automation-log {
+  min-height: 500px;
+  padding: var(--spacing-md);
+  overflow-y: auto;
+}
+
+.log-placeholder {
+  color: var(--text-dim);
+  font-style: italic;
+  text-align: center;
+}
+
+/* ============================================
+   Media Player Panel
+   ============================================ */
+
+.media-player-panel {
+  grid-column: span 2;
+}
+
+.media-info {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-lg);
+  margin-bottom: var(--spacing-lg);
+}
+
+.album-art {
+  width: 100px;
+  height: 100px;
+  background: var(--bg-tertiary);
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  border: 1px solid var(--accent-primary);
+}
+
+.track-info {
+  flex: 1;
+}
+
+.track-title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: var(--spacing-sm);
+}
+
+.track-artist {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+}
+
+.media-controls {
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing-lg);
+}
+
+.media-btn {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  border-radius: 50%;
+}
+
+.play-btn {
+  width: 70px;
+  height: 70px;
+  font-size: 2rem;
+  background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+}
+
+/* ============================================
+   Pomodoro Timer Panel
+   ============================================ */
+
+.pomodoro-panel {
+  grid-column: span 2;
+}
+
+.timer-display {
+  position: relative;
+  width: 250px;
+  height: 250px;
+  margin: 0 auto var(--spacing-lg);
+}
+
+.timer-ring {
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+}
+
+.timer-ring-bg {
+  fill: none;
+  stroke: var(--bg-tertiary);
+  stroke-width: 8;
+}
+
+.timer-ring-fill {
+  fill: none;
+  stroke: var(--accent-primary);
+  stroke-width: 8;
+  stroke-linecap: round;
+  stroke-dasharray: 565;
+  stroke-dashoffset: 0;
+  transition: stroke-dashoffset 1s linear;
+  filter: drop-shadow(0 0 10px var(--accent-glow));
+}
+
+.timer-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 3rem;
+  font-weight: 700;
+  font-family: 'Courier New', monospace;
+  color: var(--text-primary);
+}
+
+.timer-controls {
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing-md);
+}
+
+.timer-btn {
+  padding: var(--spacing-md) var(--spacing-xl);
+}
+
+/* ============================================
+   Security Panel
+   ============================================ */
+
+.security-status-panel {
+  grid-column: span 2;
+}
+
+.security-shield {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-lg);
+}
+
+.shield-icon {
+  font-size: 5rem;
+  filter: drop-shadow(0 0 30px var(--success));
+}
+
+.shield-status {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--success);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.security-metrics {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--spacing-md);
+}
+
+.metric-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-lg);
+  background: var(--bg-tertiary);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--success);
+}
+
+.metric-label {
+  font-size: 0.75rem;
+  color: var(--text-dim);
+  text-transform: uppercase;
+}
+
+.metric-value {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+/* ============================================
+   Alerts Panel
+   ============================================ */
+
+.alerts-panel {
+  grid-column: span 2;
+}
+
+.alerts-log {
+  min-height: 200px;
+  padding: var(--spacing-md);
+}
+
+/* ============================================
+   Settings Panel
+   ============================================ */
+
+.theme-settings-panel {
+  grid-column: span 2;
+}
+
+.theme-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: var(--spacing-md);
+}
+
+.theme-option {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-md);
+  background: var(--bg-tertiary);
+  border: 2px solid transparent;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.theme-option:hover {
+  border-color: var(--accent-primary);
+  box-shadow: var(--glow-sm);
+}
+
+.theme-option.active {
+  border-color: var(--accent-primary);
+  box-shadow: var(--glow-md);
+}
+
+.theme-preview {
+  width: 80px;
+  height: 60px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--accent-primary);
+}
+
+.dark-preview {
+  background: linear-gradient(135deg, #0a0e1a, #12182b);
+}
+
+.neon-preview {
+  background: linear-gradient(135deg, #001a33, #0066cc);
+}
+
+.matrix-preview {
+  background: linear-gradient(135deg, #000000, #003300);
+}
+
+.tron-preview {
+  background: linear-gradient(135deg, #000033, #00ccff);
+}
+
+.holographic-preview {
+  background: linear-gradient(135deg, #330066, #cc00ff);
+}
+
+.theme-name {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+}
+
+/* ============================================
+   Voice Settings Panel
+   ============================================ */
+
+.voice-settings-panel {
+  grid-column: span 2;
+}
+
+.settings-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+.form-group label {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.settings-input,
+.settings-select {
+  width: 100%;
+}
